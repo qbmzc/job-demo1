@@ -9,12 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @DisallowConcurrentExecution
-public class DemoJob02 extends QuartzJobBean{
-
+public class DemoJob03 extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        log.info("[executeInternal][我开始执行了]");
+        log.info("{}[我开始执行了]", DemoJob03.class.getName());
     }
-    
+
 }

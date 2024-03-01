@@ -51,6 +51,7 @@ public class DataSourceConfiguration {
 
     /**
      * 创建 quartz 数据源
+     * @QuartzDataSource 注解为我们配置和初始化 Quartz 数据库
      */
     @Bean(name = "quartzDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.quartz.hikari")

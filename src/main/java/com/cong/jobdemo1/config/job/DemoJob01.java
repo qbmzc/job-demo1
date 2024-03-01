@@ -1,5 +1,7 @@
 package com.cong.jobdemo1.config.job;
 
+import java.util.concurrent.TimeUnit;
+
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -19,7 +21,15 @@ public class DemoJob01 extends QuartzJobBean{
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        log.info("[executeInternal][我开始的执行了, demoService 为 ({})]", demoService);
+
+        log.info("准备执行，耗时任务");
+        try {
+            TimeUnit.SECONDS.sleep(30);
+        } catch (InterruptedException e) {
+            log.error("线程中断", e);
+            Thread.currentThread().interrupt();
+        }
+        log.info("[executeInternal][我开始执行了, demoService 为 ({})]", demoService);
     }
     
 }
